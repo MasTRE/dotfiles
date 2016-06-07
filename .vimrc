@@ -10,6 +10,11 @@ set t_Co=256
 set clipboard=unnamed
 set autoindent " always set autoindenting on
 
+syntax on
+" OS X needs either a good scheme or set background=dark
+colorscheme torte
+
+
 " backup stuff
 set backup     " keep a backup file
 set backupdir=~/.vim/backup
