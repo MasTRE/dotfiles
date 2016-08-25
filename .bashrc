@@ -17,6 +17,8 @@ alias ll='ls -lAh'
 alias mv='mv -i'
 alias rm='rm -i'
 alias egrep='egrep --color'
+# this is needed so that vim can use 256 colors inside tmux
+alias tmux='tmux -2'
 
 # set prompt
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
