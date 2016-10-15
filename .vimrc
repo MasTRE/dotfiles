@@ -6,6 +6,9 @@ set nocp
 
 set t_Co=256
 
+" set settings by filetype
+filetype plugin on
+
 " always want clipboard selection
 set clipboard=unnamed
 set autoindent " always set autoindenting on
@@ -14,12 +17,13 @@ syntax on
 " OS X needs either a good scheme or set background=dark
 colorscheme torte
 
-set textwidth=78
+"set textwidth=78
 " also see http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 " a faint grey (gray?) color, not too insistent
 highlight ColorColumn term=reverse ctermbg=233 guibg=#202020
 " put the marker(s) at 'textwidth+2' (and at position 120)
-set colorcolumn=+2,120
+"set colorcolumn=+2,120
+set colorcolumn=80,120
 " if we're called as '*view', or on a console, turn off the colorcolumn
 if v:progname =~? 'view' || &term =~? 'linux|console'
     set colorcolumn=
