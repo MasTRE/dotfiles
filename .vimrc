@@ -7,7 +7,9 @@ set nocp
 set t_Co=256
 
 " set settings by filetype
+"au filetype php echoerr 'before'
 filetype plugin on
+"au filetype php echoerr 'after'
 
 " always want clipboard selection
 set clipboard=unnamed
@@ -129,4 +131,9 @@ imap <esc>OH <home>
 map <esc>OF <end>
 cmap <esc>OF <end>
 imap <esc>OF <end>
+
+" include sensible.vim https://github.com/tpope/vim-sensible
+if !empty(glob("~/.vim/sensible.vim"))
+    source ~/.vim/sensible.vim
+endif
 
