@@ -137,3 +137,6 @@ if !empty(glob("~/.vim/sensible.vim"))
     source ~/.vim/sensible.vim
 endif
 
+" macOS needs it
+syntax on
+

@@ -1,4 +1,3 @@
-
 # some more ls aliases
 alias ll='ls -lAh'
 #alias la='ls -A'
@@ -17,19 +16,16 @@ export MYSQL_PS1='\h/\d>\_'
 export CLICOLOR=1
 export LSCOLORS="GxGxBxDxCxEgEdxbxgxcxd"
 
-source ~/.bashrc.paths
+#source ~/.bashrc.paths
 
 # GPG/SSH
-`/usr/bin/killall -d gpg-agent &> /dev/null`
-if [ $? -ne 0 ]; then
-    echo 'Starting up gpg-agent w/ ssh support';
-    gpg-agent --daemon --enable-ssh-support --write-env-file ~/.gpg-agent-info
+# Add the following to your shell init to set up gpg-agent automatically for every shell
+if [ -S "$(gpgconf --list-dirs agent-ssh-socket)" ] && [ -n "$(pgrep gpg-agent)" ]; then
+    export SSH_AUTH_SOCK=`gpgconf --list-dirs agent-ssh-socket`
 else
-    echo 'gpg-agent already running, doing nothing';
+    eval $(gpg-agent --daemon)
 fi
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-     . "${HOME}/.gpg-agent-info"
-       export GPG_AGENT_INFO
-       export SSH_AUTH_SOCK
-       export SSH_AGENT_PID
-fi
+
+# https://www.dns.toys/ https://news.ycombinator.com/item?id=31704789
+function dy { dig +noall +answer +additional "$1" @dns.toys; }
+
